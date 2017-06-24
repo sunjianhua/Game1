@@ -21,6 +21,11 @@
 /*/*.xcodeproj
 /.vs
 /Intermediate
+/Binaries
+/Content
+/DerivedDataCache
+/Saved
+/x64
 
 /*.exe
 /*.dll
