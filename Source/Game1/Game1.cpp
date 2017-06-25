@@ -1,19 +1,20 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Game1.h"
+#include "MainWidgetStyle.h"
 
-class FUiStudyModule : public FDefaultGameModuleImpl
+class FGame1Module : public FDefaultGameModuleImpl
 {
 	virtual void StartupModule() override
 	{
-		FSlateStyleRegistry::UnRegisterSlateStyle(FMainPanelStyleSet::GetStyleSetName());
-		FMainPanelStyleSet::Initialize();
+		FSlateStyleRegistry::UnRegisterSlateStyle(FMainStyleSet::GetStyleSetName());
+		FMainStyleSet::Initialize();
 	}
 
 	virtual void ShutdownModule() override
 	{
-		FMainPanelStyleSet::Shutdown();
+		FMainStyleSet::Shutdown();
 	}
 };
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Game1, "Game1" );
+IMPLEMENT_PRIMARY_GAME_MODULE(FGame1Module, Game1, "Game1" );

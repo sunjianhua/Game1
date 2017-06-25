@@ -51,7 +51,7 @@ public:
 };
 
 /**  */
-class FMainPanelStyleSet
+class FMainStyleSet
 {
 public:
 

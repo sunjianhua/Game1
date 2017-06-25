@@ -2,7 +2,7 @@
 
 #include "Game1.h"
 #include "MainWidgetStyle.h"
-
+#include "Slate/SlateGameResources.h"
 
 FMainStyle::FMainStyle()
 {}
@@ -24,9 +24,9 @@ void FMainStyle::GetResources(TArray<const FSlateBrush*>& OutBrushes) const
 /**
 *
 */
-TSharedPtr< class FSlateStyleSet > FMainPanelStyleSet::AddContentDialogStyleInstance = NULL;
+TSharedPtr< class FSlateStyleSet > FMainStyleSet::AddContentDialogStyleInstance = NULL;
 
-void FMainPanelStyleSet::Initialize()
+void FMainStyleSet::Initialize()
 {
 	if (!AddContentDialogStyleInstance.IsValid())
 	{
@@ -35,31 +35,31 @@ void FMainPanelStyleSet::Initialize()
 	}
 }
 
-void FMainPanelStyleSet::Shutdown()
+void FMainStyleSet::Shutdown()
 {
 	FSlateStyleRegistry::UnRegisterSlateStyle(*AddContentDialogStyleInstance);
 	ensure(AddContentDialogStyleInstance.IsUnique());
 	AddContentDialogStyleInstance.Reset();
 }
 
-void FMainPanelStyleSet::ReloadTextures()
+void FMainStyleSet::ReloadTextures()
 {
 	FSlateApplication::Get().GetRenderer()->ReloadTextureResources();
 }
 
-const ISlateStyle& FMainPanelStyleSet::Get()
+const ISlateStyle& FMainStyleSet::Get()
 {
 	return *AddContentDialogStyleInstance;
 }
 
-FName FMainPanelStyleSet::GetStyleSetName()
+FName FMainStyleSet::GetStyleSetName()
 {
-	static FName StyleSetName(TEXT("MainPanelStyle"));
+	static FName StyleSetName(TEXT("MainStyleSet"));
 	return StyleSetName;
 }
 
-TSharedRef< class FSlateStyleSet > FMainPanelStyleSet::Create()
+TSharedRef< class FSlateStyleSet > FMainStyleSet::Create()
 {
-	TSharedRef<FSlateStyleSet> StyleRef = FSlateGameResources::New(FMainPanelStyleSet::GetStyleSetName(), "/Game/UI/Styles", "/Game/UI/Styles");
+	TSharedRef<FSlateStyleSet> StyleRef = FSlateGameResources::New(FMainStyleSet::GetStyleSetName(), "/Game/UI/Styles", "/Game/UI/Styles");
 	return StyleRef;
 }
