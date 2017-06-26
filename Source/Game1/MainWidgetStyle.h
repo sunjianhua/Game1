@@ -26,7 +26,7 @@ struct GAME1_API FMainStyle : public FSlateWidgetStyle
 	static const FMainStyle& GetDefault();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Appearance)
-		FSlateBrush TitleTextBrush;
+		FTextBlockStyle TitleTextStyle;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Appearance)
 		FButtonStyle ChatButtonStyle;

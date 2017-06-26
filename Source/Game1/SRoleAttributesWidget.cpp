@@ -12,7 +12,7 @@ void SRoleAttributesWidget::Construct(const FArguments& InArgs)
 
 	ChildSlot
 	[
-		SNew(STextBlock).Text(FText::FromString("user name"))
+		SNew(STextBlock).Text(FText::FromString("user name")).TextStyle(&MainPanelStyl.TitleTextStyle)
 	];
 }
 END_SLATE_FUNCTION_BUILD_OPTIMIZATION
